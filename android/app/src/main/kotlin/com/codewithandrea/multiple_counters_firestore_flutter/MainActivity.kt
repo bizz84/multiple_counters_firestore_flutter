@@ -1,4 +1,4 @@
-package com.example.multiple_counters_firestore_flutter
+package com.codewithandrea.multiple_counters_firestore_flutter
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

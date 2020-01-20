@@ -1,16 +1,18 @@
-# multiple_counters_firestore_flutter
+# Multiple Counters Flutter App with Cloud Firestore
 
-A new Flutter project.
+This sample app shows how to implement multiple counters, which are persisted with Cloud Firestore.
 
-## Getting Started
+## Running the project with Firebase
 
-This project is a starting point for a Flutter application.
+To use this project with Firebase authentication, some configuration steps are required.
 
-A few resources to get you started if this is your first Flutter project:
+- Create a new project with the Firebase console.
+- Add iOS and Android apps in the Firebase project settings.
+- On Android, use `com.codewithandrea.multiple_counters_firestore_flutter` as the package name (a SHA-1 certificate fingerprint is also needed for Google sign-in).
+- then, [download and copy](https://firebase.google.com/docs/flutter/setup#configure_an_android_app) `google-services.json` into `android/app`.
+- On iOS, use `com.codewithandrea.multipleCountersFirestoreFlutter ` as the bundle ID.
+- then, [download and copy](https://firebase.google.com/docs/flutter/setup#configure_an_ios_app) `GoogleService-Info.plist` into `iOS/Runner`, and add it to the Runner target in Xcode.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+See this document for full instructions:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [https://firebase.google.com/docs/flutter/setup](https://firebase.google.com/docs/flutter/setup) 
