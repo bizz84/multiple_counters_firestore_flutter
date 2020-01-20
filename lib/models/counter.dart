@@ -1,11 +1,11 @@
 class Counter {
   Counter({this.id, this.value});
-  int id;
+  String id;
   int value;
 
   factory Counter.fromMap(Map<String, dynamic> data, String documentID) {
     return Counter(
-      id: int.tryParse(documentID),
+      id: documentID,
       value: data['value'],
     );
   }

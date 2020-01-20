@@ -8,21 +8,21 @@ class MultipleCountersPage extends StatelessWidget {
   const MultipleCountersPage({Key key, this.database}) : super(key: key);
   final Database database;
 
-  void _createCounter() async {
+  Future<void> _createCounter() async {
     await database.createCounter();
   }
 
-  void _increment(Counter counter) async {
+  Future<void> _increment(Counter counter) async {
     counter.value++;
     await database.setCounter(counter);
   }
 
-  void _decrement(Counter counter) async {
+  Future<void> _decrement(Counter counter) async {
     counter.value--;
     await database.setCounter(counter);
   }
 
-  void _delete(Counter counter) async {
+  Future<void> _delete(Counter counter) async {
     await database.deleteCounter(counter);
   }
 
