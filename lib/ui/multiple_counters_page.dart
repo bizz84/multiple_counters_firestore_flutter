@@ -30,7 +30,7 @@ class MultipleCountersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Streams'),
+        title: Text('Multiple counters'),
         elevation: 1.0,
       ),
       body: Container(

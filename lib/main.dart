@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.indigo,
         ),
         home: Consumer<Database>(
-          builder: (_, database, __) => MultipleCountersPage(),
+          builder: (_, database, __) =>
+              MultipleCountersPage(database: database),
         ),
       ),
     );
