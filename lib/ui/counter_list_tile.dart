@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:multiple_counters_firestore_flutter/models/counter.dart';
 
 class CounterListTile extends StatelessWidget {
-  CounterListTile(
-      {this.key,
-      this.counter,
-      this.onDecrement,
-      this.onIncrement,
-      this.onDismissed});
+  CounterListTile({
+    this.key,
+    @required this.counter,
+    this.onDecrement,
+    this.onIncrement,
+    this.onDismissed,
+  });
   final Key key;
   final Counter counter;
   final ValueChanged<Counter> onDecrement;
@@ -50,7 +51,7 @@ class CounterListTile extends StatelessWidget {
 }
 
 class CounterActionButton extends StatelessWidget {
-  CounterActionButton({this.iconData, this.onPressed});
+  CounterActionButton({@required this.iconData, this.onPressed});
   final VoidCallback onPressed;
   final IconData iconData;
   @override

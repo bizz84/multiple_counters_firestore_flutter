@@ -1,13 +1,13 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:multiple_counters_firestore_flutter/models/counter.dart';
 import 'package:multiple_counters_firestore_flutter/services/firestore_service.dart';
 
-// Cloud Firestore
 class Database {
   final firestore = FirestoreService.instance;
 
   Future<void> createCounter() async {
-    int now = DateTime.now().millisecondsSinceEpoch;
+    int now = Timestamp.now().toDate().millisecondsSinceEpoch;
     Counter counter = Counter(id: now, value: 0);
     await setCounter(counter);
   }

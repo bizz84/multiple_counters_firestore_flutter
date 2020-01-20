@@ -33,9 +33,7 @@ class MultipleCountersPage extends StatelessWidget {
         title: Text('Multiple counters'),
         elevation: 1.0,
       ),
-      body: Container(
-        child: _buildContent(),
-      ),
+      body: _buildContent(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: _createCounter,
@@ -48,7 +46,7 @@ class MultipleCountersPage extends StatelessWidget {
       stream: database.countersStream(),
       builder: (context, snapshot) {
         return ListItemsBuilder<Counter>(
-          items: snapshot.hasData ? snapshot.data : null,
+          items: snapshot.data,
           itemBuilder: (context, counter) {
             return CounterListTile(
               key: Key('counter-${counter.id}'),
