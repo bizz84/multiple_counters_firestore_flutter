@@ -1,6 +1,8 @@
 # Multiple Counters Flutter App with Cloud Firestore
 
-This sample app shows how to implement multiple counters, which are persisted with Cloud Firestore.
+This sample app shows how to implement multiple counters, which are stored with Cloud Firestore.
+
+![Multiple counters](/media/multiple-counters-screenshot.png)
 
 ## Running the project with Firebase
 
