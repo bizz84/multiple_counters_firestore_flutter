@@ -7,6 +7,7 @@ class FirestoreRepository {
   FirestoreRepository(this._firestore);
   final FirebaseFirestore _firestore;
 
+  // Create
   Future<void> createCounter() {
     int now = Timestamp.now().toDate().millisecondsSinceEpoch;
     final id = now.toString();
@@ -16,28 +17,26 @@ class FirestoreRepository {
     });
   }
 
-  Future<void> updateCounter(Counter counter) {
-    return _firestore.doc('counters/${counter.id}').set({
-      'id': counter.id,
-      'value': counter.value,
-    });
-  }
+  // Update
+  Future<void> updateCounter(Counter counter) =>
+      _firestore.doc('counters/${counter.id}').set({
+        'id': counter.id,
+        'value': counter.value,
+      });
 
   // Delete
-  Future<void> deleteCounter(String id) {
-    return _firestore.doc('counters/$id').delete();
-  }
+  Future<void> deleteCounter(String id) =>
+      _firestore.doc('counters/$id').delete();
 
-  Query<Counter> countersQuery() {
-    return _firestore
-        .collection('counters')
-        .withConverter(
-          fromFirestore: (snapshot, _) =>
-              Counter.fromMap(snapshot.data()!, snapshot.id),
-          toFirestore: (counter, _) => counter.toMap(),
-        )
-        .orderBy('id', descending: false);
-  }
+  // Read
+  Query<Counter> countersQuery() => _firestore
+      .collection('counters')
+      .withConverter(
+        fromFirestore: (snapshot, _) =>
+            Counter.fromMap(snapshot.data()!, snapshot.id),
+        toFirestore: (counter, _) => counter.toMap(),
+      )
+      .orderBy('id', descending: false);
 }
 
 final firestoreRepositoryProvider = Provider<FirestoreRepository>((ref) {
