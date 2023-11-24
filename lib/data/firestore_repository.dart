@@ -4,12 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:multiple_counters_firestore_flutter/domain/counter.dart';
 
 class FirestoreRepository {
-  FirestoreRepository(this._firestore);
+  const FirestoreRepository(this._firestore);
   final FirebaseFirestore _firestore;
 
   // Create
   Future<void> createCounter() {
-    int now = Timestamp.now().toDate().millisecondsSinceEpoch;
+    final now = DateTime.now().millisecondsSinceEpoch;
     final id = now.toString();
     return _firestore.doc('counters/$id').set({
       'id': id,
@@ -32,8 +32,7 @@ class FirestoreRepository {
   Query<Counter> countersQuery() => _firestore
       .collection('counters')
       .withConverter(
-        fromFirestore: (snapshot, _) =>
-            Counter.fromMap(snapshot.data()!, snapshot.id),
+        fromFirestore: (snapshot, _) => Counter.fromMap(snapshot.data()!),
         toFirestore: (counter, _) => counter.toMap(),
       )
       .orderBy('id', descending: false);

@@ -3,9 +3,9 @@ class Counter {
   final String id;
   final int value;
 
-  factory Counter.fromMap(Map<String, dynamic> data, String documentID) {
+  factory Counter.fromMap(Map<String, dynamic> data) {
     return Counter(
-      id: documentID,
+      id: data['id'],
       value: data['value'],
     );
   }
@@ -16,5 +16,5 @@ class Counter {
       };
 
   Counter increment() => Counter(id: id, value: value + 1);
-  Counter decrement() => Counter(id: id, value: value + 1);
+  Counter decrement() => Counter(id: id, value: value - 1);
 }
