@@ -1,5 +1,5 @@
 class Counter {
-  Counter({this.id, this.value});
+  Counter({required this.id, required this.value});
   String id;
   int value;
 

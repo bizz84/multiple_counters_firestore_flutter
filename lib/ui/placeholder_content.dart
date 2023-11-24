@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class PlaceholderContent extends StatelessWidget {
-  PlaceholderContent({
-    this.title: 'Nothing Here',
-    this.message: 'Add a new item to get started.',
+  const PlaceholderContent({super.key, 
+    this.title = 'Nothing Here',
+    this.message = 'Add a new item to get started.',
   });
   final String title;
   final String message;
@@ -16,10 +16,10 @@ class PlaceholderContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(title,
-              style: TextStyle(fontSize: 32.0, color: Colors.black54),
+              style: const TextStyle(fontSize: 32.0, color: Colors.black54),
               textAlign: TextAlign.center),
           Text(message,
-              style: TextStyle(fontSize: 16.0, color: Colors.black54),
+              style: const TextStyle(fontSize: 16.0, color: Colors.black54),
               textAlign: TextAlign.center),
         ],
       ),

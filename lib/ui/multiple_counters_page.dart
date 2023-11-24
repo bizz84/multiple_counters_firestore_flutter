@@ -5,7 +5,7 @@ import 'package:multiple_counters_firestore_flutter/ui/counter_list_tile.dart';
 import 'package:multiple_counters_firestore_flutter/ui/list_items_builder.dart';
 
 class MultipleCountersPage extends StatelessWidget {
-  const MultipleCountersPage({Key key, this.database}) : super(key: key);
+  const MultipleCountersPage({super.key, required this.database});
   final Database database;
 
   Future<void> _createCounter() async {
@@ -30,13 +30,13 @@ class MultipleCountersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Multiple counters'),
+        title: const Text('Multiple counters'),
         elevation: 1.0,
       ),
       body: _buildContent(),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
         onPressed: _createCounter,
+        child: const Icon(Icons.add),
       ),
     );
   }

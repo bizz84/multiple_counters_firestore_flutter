@@ -2,46 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:multiple_counters_firestore_flutter/models/counter.dart';
 
 class CounterListTile extends StatelessWidget {
-  CounterListTile({
-    this.key,
-    @required this.counter,
+  const CounterListTile({
+    super.key,
+    required this.counter,
     this.onDecrement,
     this.onIncrement,
     this.onDismissed,
   });
-  final Key key;
   final Counter counter;
-  final ValueChanged<Counter> onDecrement;
-  final ValueChanged<Counter> onIncrement;
-  final ValueChanged<Counter> onDismissed;
+  final ValueChanged<Counter>? onDecrement;
+  final ValueChanged<Counter>? onIncrement;
+  final ValueChanged<Counter>? onDismissed;
 
   @override
   Widget build(BuildContext context) {
     return Dismissible(
       background: Container(color: Colors.red),
-      key: key,
+      key: key!,
       direction: DismissDirection.endToStart,
-      onDismissed: (direction) => onDismissed(counter),
+      onDismissed: (direction) => onDismissed!(counter),
       child: ListTile(
         title: Text(
           '${counter.value}',
-          style: TextStyle(fontSize: 48.0),
+          style: const TextStyle(fontSize: 48.0),
         ),
         subtitle: Text(
-          '${counter.id}',
-          style: TextStyle(fontSize: 16.0),
+          counter.id,
+          style: const TextStyle(fontSize: 16.0),
         ),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             CounterActionButton(
               iconData: Icons.remove,
-              onPressed: () => onDecrement(counter),
+              onPressed: () => onDecrement!(counter),
             ),
-            SizedBox(width: 8.0),
+            const SizedBox(width: 8.0),
             CounterActionButton(
               iconData: Icons.add,
-              onPressed: () => onIncrement(counter),
+              onPressed: () => onIncrement!(counter),
             ),
           ],
         ),
@@ -51,8 +50,9 @@ class CounterListTile extends StatelessWidget {
 }
 
 class CounterActionButton extends StatelessWidget {
-  CounterActionButton({@required this.iconData, this.onPressed});
-  final VoidCallback onPressed;
+  const CounterActionButton(
+      {super.key, required this.iconData, this.onPressed});
+  final VoidCallback? onPressed;
   final IconData iconData;
   @override
   Widget build(BuildContext context) {
