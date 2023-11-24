@@ -39,25 +39,17 @@ class CountersListView extends ConsumerWidget {
       emptyBuilder: (context) => const Center(child: Text('No data')),
       itemBuilder: (BuildContext context, QueryDocumentSnapshot<Counter> doc) {
         final counter = doc.data();
-        return Dismissible(
-          key: Key(doc.id),
-          background: const ColoredBox(color: Colors.red),
-          direction: DismissDirection.endToStart,
-          onDismissed: (direction) {
-            ref.read(firestoreRepositoryProvider).deleteCounter(doc.id);
-          },
-          child: CounterListTile(
-            key: Key('counter-${counter.id}'),
-            counter: counter,
-            onDecrement: (counter) => ref
-                .read(firestoreRepositoryProvider)
-                .updateCounter(counter.decrement()),
-            onIncrement: (counter) => ref
-                .read(firestoreRepositoryProvider)
-                .updateCounter(counter.increment()),
-            onDismissed: (counter) =>
-                ref.read(firestoreRepositoryProvider).deleteCounter(counter.id),
-          ),
+        return CounterListTile(
+          key: Key('counter-${counter.id}'),
+          counter: counter,
+          onDecrement: (counter) => ref
+              .read(firestoreRepositoryProvider)
+              .updateCounter(counter.decrement()),
+          onIncrement: (counter) => ref
+              .read(firestoreRepositoryProvider)
+              .updateCounter(counter.increment()),
+          onDismissed: (counter) =>
+              ref.read(firestoreRepositoryProvider).deleteCounter(counter.id),
         );
       },
     );
