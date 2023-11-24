@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:multiple_counters_firestore_flutter/models/counter.dart';
+import 'package:multiple_counters_firestore_flutter/domain/counter.dart';
 
 class CounterListTile extends StatelessWidget {
   const CounterListTile({

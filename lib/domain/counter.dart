@@ -1,7 +1,7 @@
 class Counter {
-  Counter({required this.id, required this.value});
-  String id;
-  int value;
+  const Counter({required this.id, required this.value});
+  final String id;
+  final int value;
 
   factory Counter.fromMap(Map<String, dynamic> data, String documentID) {
     return Counter(
@@ -14,4 +14,7 @@ class Counter {
         'id': id,
         'value': value,
       };
+
+  Counter increment() => Counter(id: id, value: value + 1);
+  Counter decrement() => Counter(id: id, value: value + 1);
 }
