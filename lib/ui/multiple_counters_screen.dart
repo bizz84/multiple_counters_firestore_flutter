@@ -114,7 +114,7 @@ class CounterActionButton extends StatelessWidget {
       radius: 28.0,
       backgroundColor: Theme.of(context).primaryColor,
       child: IconButton(
-        icon: Icon(iconData, size: 28.0),
+        icon: Icon(iconData),
         color: Colors.white,
         onPressed: onPressed,
       ),

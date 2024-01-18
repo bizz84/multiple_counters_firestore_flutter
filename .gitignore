@@ -1,6 +1,6 @@
 # Miscellaneous
 *.class
-*.lock
+#*.lock
 *.log
 *.pyc
 *.swp
@@ -17,7 +17,7 @@
 .idea/
 
 # Visual Studio Code related
-.vscode/
+#.vscode/
 
 # Flutter repo-specific
 /bin/cache/
@@ -83,6 +83,8 @@ unlinked_spec.ds
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
 **/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/.last_build_id
+
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
@@ -92,5 +94,12 @@ unlinked_spec.ds
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 # Firebase configuration files
+lib/firebase_options.dart
 ios/Runner/GoogleService-Info.plist
+ios/firebase_app_id_file.json
+macos/Runner/GoogleService-Info.plist
+macos/firebase_app_id_file.json
 android/app/google-services.json
+
+# Firebase hosting
+.firebase/
